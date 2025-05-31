@@ -1,0 +1,241 @@
+/* controle_gastos/static/css/style.css */
+
+/* CSS Completo para Controle de Gastos */
+
+/* Reset básico */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Corpo da página */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Container principal */
+.container {
+    background-color: white;
+    padding: 30px 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 400px;
+    margin: 40px auto;
+}
+
+/* Títulos */
+h1, h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: 700;
+    color: #222;
+}
+
+/* Inputs e selects */
+input[type="text"],
+input[type="password"],
+select {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 18px;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    font-size: 15px;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+select:focus {
+    border-color: #007BFF;
+    outline: none;
+}
+
+/* Labels */
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #555;
+}
+
+/* Checkbox lembrar login */
+.remember {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+
+.remember input {
+    margin-right: 8px;
+}
+
+/* Botões */
+button {
+    width: 100%;
+    padding: 12px 0;
+    background-color: #007BFF;
+    color: white;
+    font-weight: 700;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Mensagens de erro e sucesso */
+.msg {
+    margin: 15px 0 0;
+    padding: 12px;
+    border-radius: 6px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.msg.error {
+    background-color: #f8d7da;
+    color: #842029;
+}
+
+.msg.success {
+    background-color: #d1e7dd;
+    color: #0f5132;
+}
+
+/* Links de navegação */
+.link {
+    margin-top: 25px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.link a {
+    color: #007BFF;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.link a:hover {
+    text-decoration: underline;
+}
+
+/* Cabeçalho do site */
+header {
+    width: 100%;
+    max-width: 900px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    margin-bottom: 40px;
+}
+
+header h1 {
+    font-size: 24px;
+    color: #222;
+}
+
+header a.logout {
+    background-color: #d9534f;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    margin-left: 10px;
+}
+
+header a.logout:hover {
+    background-color: #c9302c;
+}
+
+/* Área principal */
+main {
+    width: 100%;
+    max-width: 900px;
+    background-color: white;
+    padding: 30px 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* Formulário do relatório */
+form#relatorio-form {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-bottom: 25px;
+}
+
+form#relatorio-form label {
+    margin-bottom: 0;
+    font-weight: 600;
+    color: #555;
+}
+
+form#relatorio-form select {
+    width: auto;
+    flex-grow: 1;
+    max-width: 200px;
+}
+
+form#relatorio-form button {
+    width: auto;
+    padding: 10px 20px;
+}
+
+/* Gráfico */
+.grafico img {
+    max-width: 100%;
+    border-radius: 12px;
+    margin-top: 25px;
+}
+
+/* Link para baixar relatório */
+.relatorio-link {
+    display: inline-block;
+    margin-top: 20px;
+    font-weight: 700;
+    color: #28a745;
+    text-decoration: none;
+}
+
+.relatorio-link:hover {
+    text-decoration: underline;
+}
+
+/* Responsivo */
+@media (max-width: 480px) {
+    .container, main {
+        padding: 20px;
+        width: 95%;
+    }
+
+    form#relatorio-form {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    form#relatorio-form select,
+    form#relatorio-form button {
+        width: 100%;
+        max-width: 100%;
+    }
+}

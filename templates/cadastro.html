@@ -1,0 +1,41 @@
+<!-- controle_gastos/templates/cadastro.html -->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <title>Cadastro</title>
+    <!-- Link para o CSS externo -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Cadastro</h1>
+
+        {% if erro %}
+            <p class="msg error">{{ erro }}</p>
+        {% endif %}
+        {% if sucesso %}
+            <p class="msg success">{{ sucesso }}</p>
+        {% endif %}
+
+        <form method="POST">
+            <label for="username">Usuário:</label>
+            <input type="text" id="username" name="username" required
+                   value="{{ username | default('') }}">
+
+            <label for="senha">Senha:</label>
+            <input type="password" id="senha" name="senha" required>
+
+            <label for="confirmar_senha">Confirmar Senha:</label>
+            <input type="password" id="confirmar_senha" name="confirmar_senha" required>
+
+            <button type="submit">Cadastrar</button>
+        </form>
+
+        <div class="link">
+            <a href="/login">🔐 Já tem conta? Fazer login</a>
+        </div>
+    </div>
+</body>
+</html>

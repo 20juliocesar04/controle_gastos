@@ -1,0 +1,45 @@
+<!-- controle_gastos/templates/adicionar.html -->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <title>Adicionar Gasto</title>
+    <!-- Link para o CSS externo -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<header>
+    <h1>Adicionar Gasto</h1>
+    <!-- Link de voltar para a página inicial de relatórios -->
+    <a href="/" class="logout" style="background-color: #6c757d;">Voltar ao Início</a>
+</header>
+
+<main>
+    {% if erro %}
+        <p class="msg error">{{ erro }}</p>
+    {% endif %}
+    {% if sucesso %}
+        <p class="msg success">{{ sucesso }}</p>
+    {% endif %}
+
+    <form method="POST" action="/adicionar">
+        <label for="valor">Valor (R$):</label>
+        <input type="text" id="valor" name="valor" required
+               value="{{ valor | default('') }}">
+
+        <label for="categoria">Categoria:</label>
+        <input type="text" id="categoria" name="categoria" required
+               value="{{ categoria | default('') }}">
+
+        <label for="descricao">Descrição (opcional):</label>
+        <input type="text" id="descricao" name="descricao"
+               value="{{ descricao | default('') }}">
+
+        <button type="submit">Salvar Gasto</button>
+    </form>
+</main>
+
+</body>
+</html>
