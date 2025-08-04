@@ -4,6 +4,8 @@ import os
 from flask import Flask, render_template, request, send_file, url_for, redirect, session, make_response
 from werkzeug.security import generate_password_hash, check_password_hash
 from utils import database, relatorio, graficos
+from whatsapp_bot import processar_mensagem
+from twilio.twiml.messaging_response import MessagingResponse
 
 app = Flask(__name__)
 # Em produção, substitua "segredo123" por uma variável de ambiente segura
@@ -166,6 +168,19 @@ def adicionar_web():
 
     # Se for GET, renderiza o formulário vazio
     return render_template("adicionar.html")
+
+
+# === ROTA /webhook (WhatsApp) ===
+@app.route("/webhook", methods=["POST"])
+def whatsapp_webhook():
+    """Recebe mensagens do WhatsApp e responde."""
+    corpo = request.form.get("Body", "")
+    # Neste exemplo simples, usamos o primeiro usuário.
+    usuario_id = session.get("usuario_id", 1)
+    texto = processar_mensagem(corpo, usuario_id)
+    resposta = MessagingResponse()
+    resposta.message(texto)
+    return str(resposta)
 
 
 # === TERMINAL MENU INTERFACE (opcional) ===
